@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <style>
+         body {
+            background-image: url("https://images.pexels.com/photos/1181304/pexels-photo-1181304.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+         }
+      </style>
+</head>
+
+<div class="row">
+    <div class="col-sm-8">
+        <p>
+            <div class="float-left"><h3>List of {{title}}</h3></div>
+
+            <a class="btn btn-success float-right" href="{%  url 'company_add' %}">Add company</a>
+           
+            
+          
+        </p>
+        <div class="table-responsive-sm">
+        {% if companies %}
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Agents</th>
+                    
+                        <th>Details</th>
+                       
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                {% for company in companies %}
+                   
+                    <tr>
+                 <th scope="row">
+                            {{company.name}} 
+                </th>
+                 
+                <td><a class="btn btn-warning" href="{%  url 'agent_details' company.id %}">AgentDetails</a></td> 
+                <td><a class="btn btn-primary" href="{%  url 'company_details' company.id %}">Details</a></td>
+
+
+                <td><a class="btn btn-warning" href="{%  url 'company_edit' company.id %}">Edit</a></td>
+                <td><a class="btn btn-danger" href="{%  url 'company_delete' company.id %}">Delete</a></td>
+                </td>
+
+  
+                    </tr>
+                  
+                {% endfor %}
+                </tbody>
+                </table>
+        </div>
+        {% else %}
+            <p class="text-center" >There is no company available.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

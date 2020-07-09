@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<head>
+    <style>
+         body {
+            background-image: url("https://images.pexels.com/photos/3760072/pexels-photo-3760072.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+         }
+      </style>
+</head>
+<br>
+	
+    <h2>{{agent.agent_name}} </h2>
+    <form method="post">
+        {% csrf_token %}
+
+        <p>Are you sure to delete this Agent?</p>
+        <input type="submit" value="Yes">
+    
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<head>
+    <style>
+         body {
+            background-image: url("https://images.pexels.com/photos/3760072/pexels-photo-3760072.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+         }
+      </style>
+</head>
+
+<br>
+    <form method="POST">
+        {% csrf_token %}
+       
+        <table class="table table-bordered table-light">
+            {{a_form.as_table}}
+        </table>
+        </br>
+        <button type="submit" class="btn btn-warning float-right">Update Agent</button>
+
+    </form>
+
+{% endblock content %}

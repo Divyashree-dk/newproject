@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<head>
+    <style>
+         body {
+            background-image: url("https://images.pexels.com/photos/3760072/pexels-photo-3760072.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+         }
+      </style>
+</head>
+
+
+<br>
+     
+        <table class="table table-light table-bordered table-striped">
+       
+        <tbody>
+        {% for a in details %}  
+        <tr>
+            <th>Name</th>
+            <td>{{a.agent_name}}</td>
+        </tr>
+        <tr>
+            <th>Adress</th>
+            <td>{{a.adress}}</td>
+        </tr>
+        <tr>
+            <th>Contact</th>
+            <td>{{a.contact_num}}</td>
+        </tr>
+
+        <div class="text-right">
+        <td><a class="btn btn-warning" href="{%  url 'agent_edit' a.id %}">Edit</a></td>
+        <td><a class="btn btn-danger" href="{%  url 'agent_delete' a.id %}">Delete</a></td>
+
+        </div>
+
+
+        {% endfor %}
+ 
+
+    </tbody>
+    </table>
+
+{% endblock content %}

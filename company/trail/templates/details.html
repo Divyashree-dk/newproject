@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<head>
+    <style>
+         body {
+            background-image: url("https://images.pexels.com/photos/3760072/pexels-photo-3760072.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+         }
+      </style>
+</head>
+<br>
+     <form method="POST">
+        {% csrf_token %}
+        <table class="table table-light table-bordered table-striped">
+
+        <tbody>
+        <tr>
+            <th>Name</th>
+            <td>{{company.name}}</td>
+        </tr>
+        <tr>
+            <th>Adress</th>
+            <td>{{company.adress}}</td>
+        </tr>
+        <tr>
+            <th>phone</th>
+            <td>{{company.ph}}</td>
+        </tr>
+        
+    </tbody>
+    </table>
+    <div class="text-right">
+        <a class="btn btn-warning" href="{%  url 'company_edit' company.id %}">Edit</a>
+        <a class="btn btn-danger" href="{%  url 'company_delete' company.id %}">Delete</a>
+    </div>
+
+
+{% endblock content %}
+
